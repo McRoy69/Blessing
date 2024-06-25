@@ -23,11 +23,11 @@ jobs:
 
       - name: Process form submission
         env:
-          SMTP_HOST: smtp.example.com  # SMTP Server Einstellungen
-          SMTP_PORT: 587
+          SMTP_HOST: smtp.futura.metanet.ch  # SMTP Server Einstellungen
+          SMTP_PORT: 993
           SMTP_USER: ${{ secrets.SMTP_USER }}  # Secrets aus GitHub Repository Secrets
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          EMAIL_TO: recipient@example.com  # Empfänger E-Mail Adresse
+          EMAIL_TO: info@blessing.ch  # Empfänger E-Mail Adresse
         run: |
           # Hier kannst du die Formulardaten verarbeiten und eine E-Mail senden
           # Beispiel mit Node.js und Nodemailer
