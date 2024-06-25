@@ -1,1 +1,35 @@
+```yaml
+name: Neukundenformular
 
+on:
+  push:
+    branches:
+      - main  # Anpassen an deine Hauptbranch
+
+jobs:
+  process_form:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Anpassen an deine Node.js Version
+
+      - name: Install dependencies
+        run: npm install  # Oder die entsprechende Installationsmethode für deine Anwendung
+
+      - name: Process form submission
+        env:
+          SMTP_HOST: smtp.example.com  # SMTP Server Einstellungen
+          SMTP_PORT: 587
+          SMTP_USER: ${{ secrets.SMTP_USER }}  # Secrets aus GitHub Repository Secrets
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: recipient@example.com  # Empfänger E-Mail Adresse
+        run: |
+          # Hier kannst du die Formulardaten verarbeiten und eine E-Mail senden
+          # Beispiel mit Node.js und Nodemailer
+          node processForm.js
+```
