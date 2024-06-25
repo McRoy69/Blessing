@@ -1,34 +1,50 @@
 const nodemailer = require('nodemailer');
 
-const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, EMAIL_TO } = process.env;
-
-// Konfiguriere den SMTP-Transporter
-const transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: SMTP_PORT,
-    secure: true,  // true für SSL/TLS, false für unverschlüsselt
-    auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASSWORD
-    }
+// Configure the email transport using SMTP
+let transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
+  secure: process.env.SMTP_PORT == 465, // true for 465, false for other ports
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASSWORD
+  }
 });
 
-// Funktion zum Senden der E-Mail
-async function sendEmail() {
-    const mailOptions = {
-        from: SMTP_USER,  // Absenderadresse (kann angepasst werden)
-        to: EMAIL_TO,  // Empfängeradresse
-        subject: 'Neue Nachricht vom Kontaktformular',
-        text: 'Dies ist eine Testnachricht vom Kontaktformular.'  // Hier kannst du die tatsächlichen Formulardaten einfügen
-    };
+// Mockup form data for the example
+// Replace this with actual data capture from your form
+let formData = {
+  firmenname: "Example Firma",
+  vorname: "Max",
+  nachname: "Mustermann",
+  strasse: "Musterstrasse 1",
+  postleitzahl: "12345",
+  ort: "Musterstadt",
+  telefon: "+41 123 456 789",
+  email: "example@firma.com"
+};
 
-    try {
-        // E-Mail senden
-        await transporter.sendMail(mailOptions);
-        console.log('E-Mail erfolgreich versendet');
-    } catch (error) {
-        console.error('Beim Versenden der E-Mail ist ein Fehler aufgetreten:', error);
-    }
-}
+// Prepare email data
+let mailOptions = {
+  from: `"Formular" <${process.env.SMTP_USER}>`,
+  to: process.env.EMAIL_TO,
+  subject: 'Neue Formular-Einreichung',
+  text: `Neue Formular-Einreichung:
+  Firmenname: ${formData.firmenname}
+  Vorname: ${formData.vorname}
+  Nachname: ${formData.nachname}
+  Strasse: ${formData.strasse}
+  Postleitzahl: ${formData.postleitzahl}
+  Ort: ${formData.ort}
+  Telefon: ${formData.telefon}
+  Email: ${formData.email}
+  `
+};
 
-sendEmail();
+// Send email
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    return console.log(error);
+  }
+  console.log('Message sent: %s', info.messageId);
+});
