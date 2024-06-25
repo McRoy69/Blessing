@@ -1,0 +1,715 @@
+<html lang="de">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neukundenformular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white; /* Helleres Grau für den Hintergrund */
+        }
+        header, footer {
+            background-color: white;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        .header-container {
+            max-width: 1000px; /* Festlegen der maximalen Breite des Containers */
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Logos und Titel werden gleichmäßig verteilt */
+            align-items: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            height: auto; /* Automatische Anpassung der Höhe */
+        }
+        .logo1 {
+            width: 100px; /* Breite des ersten Logos */
+        }
+        .logo2 {
+            width: 150px; /* Breite des zweiten Logos */
+            border: 10px solid #fff; /* Weißer Rahmen um das zweite Logo */
+        }
+        header h1 {
+            color: white; /* Blaue Farbe für den Titel */
+            font-family: 'Anton', sans-serif; /* Schriftart "Anton" für den Titel */
+            margin: 0; /* Entfernen des Standardabstands */
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #EDEDED; /* Dunkelgraues Hintergrund für das Formular */
+            color: #fff; /* Weiße Schrift */
+            border: 0px solid #ccc;
+            border-radius: 5px;
+        }
+      <form method="post" action="submit_form.php">
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #4e4e4e; /* Dunkelgraue Felder */
+            color: #fff; /* Weiße Schrift */
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+       /* Gemeinsame Stile für alle Textfelder */
+    textarea {
+        height: 40px;
+        background-color: white; /* Hintergrundfarbe Schwarz */
+        color: black; /* Textfarbe Weiß */
+        border: none; /* Entferne die Standardrahmen */
+        padding: 10px; /* Füge etwas Abstand zum Inhalt hinzu */
+        font-size: 16px; /* Ändere die Schriftgröße */
+    }
+      /* Stil für das erste Textfeld */
+    textarea[name="Firmenname1"] {
+        width: 480px; /* Breite des ersten Textfelds */
+    }
+
+    /* Stil für das zweite Textfeld */
+    textarea[name="Firmenname2"] {
+        width: 480px; /* Breite des zweiten Textfelds */
+      }
+       textarea[name="Vorname1"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+      textarea[name="Vorname2"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+      textarea[name="Nachname1"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+      textarea[name="Nachname2"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+       textarea[name="Strasse1"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+       textarea[name="Strasse2"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+       textarea[name="Adress1"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+       textarea[name="Adress2"] {
+        width: 230px; /* Breite des zweiten Textfelds */
+      }
+       textarea[name="Postleitzahl1"] {
+        width: 120px; /* Breite des zweiten Textfelds */
+      }
+     textarea[name="Ort1"] {
+        width: 350px; /* Breite des zweiten Textfelds */
+      } 
+       textarea[name="Postleitzahl2"] {
+        width: 120px; /* Breite des zweiten Textfelds */
+      }
+     textarea[name="Ort2"] {
+        width: 350px; /* Breite des zweiten Textfelds */
+      } 
+      textarea[name="Vorwahl1"] {
+        width: 120px; /* Breite des zweiten Textfelds */
+      }
+     textarea[name="Telefon1"] {
+        width: 350px; /* Breite des zweiten Textfelds */
+      } 
+      textarea[name="Vorwahl2"] {
+        width: 120px; /* Breite des zweiten Textfelds */
+      }
+     textarea[name="Telefon2"] {
+        width: 350px; /* Breite des zweiten Textfelds */
+      } 
+      textarea[name="Auftrag"] {
+        width: 480px; /* Breite des ersten Textfelds */
+    }
+      textarea[name="Fertig"] {
+        width: 480px; /* Breite des ersten Textfelds */
+    }
+      textarea[name="Allg"] {
+        width: 480px; /* Breite des ersten Textfelds */
+    }
+      textarea[name="Rechnungen"] {
+        width: 480px; /* Breite des ersten Textfelds */
+    }
+        textarea[name="Sonstiges"] {
+        width: 480px; /* Breite des ersten Textfelds */
+    }
+          /* Verstecke die ursprüngliche Checkbox */
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    /* Benutzerdefiniertes Aussehen für die Checkbox */
+    .custom-checkbox {
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 4px;
+        display: inline-block;
+        position: relative;
+    }
+
+    /* Benutzerdefinierter Stil für das Häkchen */
+    .custom-checkbox::after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        border: 2px solid black;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-45deg);
+        top: 3px;
+        left: 6px;
+        opacity: 0;
+    }
+
+    /* Stil für angeklickte Checkbox */
+    input[type="checkbox"]:checked + .custom-checkbox::after {
+        opacity: 1;
+    }
+   
+    </style>
+    <!-- Einbinden der Schriftart Anton -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton&amp;display=swap">
+  </head>
+  <body>
+    <header style="height: 146px;">
+      <div class="header-container">
+        <div class="logo-container">
+          <table style="width: 1011px; height: 127px;" border="0">
+            <tbody>
+              <tr>
+                <td style="width: 293.217px;"><img class="logo1" src="https://www.blessing.ch/_Resources/Persistent/1/e/8/5/1e85dd018ade0e51dc5e100cc7915e30464077db/H%C3%A4rterei_Blessing_Logo_Schwarz.svg"
+
+                    alt="Härterei Blessing Logo" style="width: 205px; height: 99px;"></td>
+                <td style="width: 281px; margin-left: 28px; text-align: center;"><br>
+                </td>
+                <td style="text-align: right; margin-left: 34px;"><img class="logo2"
+
+                    src="https://www.swissarmoloy.ch/_Resources/Persistent/4/9/3/7/493796ba6ac31d464ace4e5792559a9f36d46c1d/logo-swissarmoloy-1000x176.jpg"
+
+                    alt="Swissarmoloy Logo" style="width: 230px; height: 40px;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h1></h1>
+        <div class="logo-container"> </div>
+      </div>
+    </header>
+    <div class="container">
+      <form> <label for="name"></label>
+        <table style="width: 1008px; height: 1574px;" border="0">
+          <tbody>
+            <tr>
+              <td style="width: 493.883px; display: inline-block; font-family: 'Anton', sans-serif; color: Black; font-size: 30px;">
+                GESCHÄFTSKOORDINATEN NEUKUNDEN</td>
+              <td style="width: 490.117px;"><br>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="https://www.blessing.ch/_ari/5f997c7f-767d-44a1-b952-6fe8cfe7689a/afd6ea4bb6f5f356ca1f4d5e2d3a2c10be26313b/1110/550/og/Screenshot_2020-08-27_at_15.52.28.png"
+
+                  alt="" style="width: 492px; height: 225px;"> </td>
+              <td>
+                <table style="width: 504px; height: 189px;" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="width: 493.883px; display: inline-block; font-family: 'Anton', sans-serif; color: Black; font-size: 20px;">HÄRTEREI
+                        BLESSING<br>
+                      </td>
+                      <td style="width: 490.117px; display: inline-block;">
+                        <dl>
+                          <dt><span style="letter-spacing:normal; color: Black;">Seit
+                              1950 bieten wir hochspezialisierte Lösungen in der
+                              Wärmebehandlung und Oberflächenveredelung. Unser
+                              erfahrenes Team steht Ihnen zur Verfügung, um Ihre
+                              individuellen Anforderungen zu erfüllen und Ihnen
+                              maßgeschneiderte Lösungen zu bieten.</span></dt>
+                        </dl>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="1" colspan="2"><br>
+                <div style="text-align: center;"><span style="font-family: Georgia; font-size: 13px"><span
+
+                      style="color: black;"><span style="letter-spacing:normal">Bitte
+                        füllen Sie das Formular aus, um uns zu helfen, Ihre
+                        Daten korrekt in unserem System zu erfassen.</span></span></span></div>
+                <div style="text-align: center;"><span style="color: white;"></span>
+                  <hr style="width: 900px; height: 1mm; color: #030503; margin-left: auto; margin-right: auto; border-style: solid;"><span
+
+                    style="color: white;"><span style="letter-spacing:normal"><br>
+                    </span></span></div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="color_37" style="color: black;"><span style="letter-spacing:normal"><span
+
+                      style="font-family:georgia,palatino,book antiqua,palatino linotype,serif"><span
+
+                        style="font-size:30px">Firmenadresse</span></span></span></span>
+              </td>
+              <td><br>
+                <span class="color_37" style="color: black;"><span style="letter-spacing:normal"><span
+
+                      style="font-family:georgia,palatino,book antiqua,palatino linotype,serif"><span
+
+                        style="font-size:30px">Lieferadresse</span><br>
+                      <span style="font-size:20px">(wenn nicht identisch)</span></span></span></span>
+              </td>
+            </tr>
+            <tr>
+              <td><br>
+              </td>
+              <td><span style="color: black;"><br>
+                </span> </td>
+            </tr>
+            <tr>
+              <td>
+                <dl>
+                  <dt><span style="font-family: Georgia;"><span style="color: black;"><i>Firmenname</i></span></span></dt>
+                </dl>
+                <span style="font-family: Georgia;"><span style="color: black;"><i>
+                      <textarea name="Firmenname1" required="required"
+
+wrap="soft"></textarea><br>
+                      <br>
+                    </i></span></span> </td>
+              <td>
+                <dl>
+                  <dt><span style="font-family: Georgia;"><span style="color: black;"><i>Firmenname</i></span></span></dt>
+                </dl>
+                <span style="font-family: Georgia;"><span style="color: black;"><i>
+                      <textarea name="Firmenname2" required="required" wrap="soft"></textarea><br>
+                      <br>
+                    </i></span></span> </td>
+            </tr>
+            <tr>
+              <td><i><span style="font-family: Georgia;"><span style="color: black;"></span></span></i>
+                <table style="width: 100%;" border="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><span style="color: black;"><i><span style="font-family: Georgia;">Vorname</span></i></span></dt>
+                        </dl>
+                        <span style="color: black;"><i><span style="font-family: Georgia;">
+                              <textarea name="Vorname1" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></i></span></td>
+                      <td>
+                        <dl>
+                          <dt><span style="color: black;"><i><span style="font-family: Georgia;">Nachname</span></i></span></dt>
+                        </dl>
+                        <span style="color: black;"><i><span style="font-family: Georgia;">
+                              <textarea name="Nachname1" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></i></span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Strasse
+                                  und Hausnummer</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;"><textarea
+
+name="Strasse1" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Adresszusatz</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;"><textarea
+
+name="Adress1" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <i><span style="font-family: Georgia;"><span style="color: black;"><br>
+                    </span></span></i>
+                <table style="width: 100%;" border="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Postleitzahl</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Postleitzahl1" required="required"
+
+wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Ort</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Ort1" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Vorwahl</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Vorwahl1" placeholder="+41" required="required"
+
+wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i> </td>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Telefon</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Telefon1" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i> </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <i><span style="font-family: Georgia;"><span style="color: black;">
+                    </span></span></i><i><span style="font-family: Georgia;"><span
+
+                      style="color: black;"></span></span></i></td>
+              <td>
+                <table style="width: 100%;" border="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Vorname</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;"><textarea
+
+name="Vorname2" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i> </td>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Nachname</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;"><textarea
+
+name="Nachname2" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i> </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Strasse
+                                  und Hausnummer</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;"><textarea
+
+name="Strasse2" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Adresszusatz</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;"><textarea
+
+name="Adress2" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+                <table style="width: 100%;" border="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Postleitzahl</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Postleitzahl2" required="required"
+
+wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Ort</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Ort2" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Vorwahl</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Vorwahl2" placeholder="+41" required="required"
+
+wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i> </td>
+                      <td>
+                        <dl>
+                          <dt><i><span style="color: black;"><span style="font-family: Georgia;">Telefon</span></span></i></dt>
+                        </dl>
+                        <i><span style="color: black;"><span style="font-family: Georgia;">
+                              <textarea name="Telefon2" required="required" wrap="soft"></textarea><br>
+                              <br>
+                            </span></span></i> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td><i><span style="font-family: Georgia;"><span style="color: black;"><br>
+                    </span></span></i> </td>
+              <td><i><span style="font-family: Georgia;"><span style="color: black;"><br>
+                    </span></span></i> </td>
+            </tr>
+            <tr>
+              <td><br>
+                <span class="color_37" style="color: black;"><span style="letter-spacing:normal"><span
+
+                      style="font-family:georgia,palatino,book antiqua,palatino linotype,serif"><span
+
+                        style="font-size:30px">Mail Adressen<br>
+                        <br>
+                      </span></span></span></span> </td>
+              <td><i><span style="font-family: Georgia;"><span style="color: black;"><br>
+                    </span></span></i> </td>
+            </tr>
+            <tr>
+              <td>
+                <dl>
+                  <dt><i><span style="font-family: Georgia;"><span style="color: black;">Auftragbestätigung</span></span></i></dt>
+                </dl>
+                <i><span style="font-family: Georgia;"><span style="color: black;"><textarea
+
+name="Auftrag" required="required" wrap="soft"></textarea><br>
+                      <br>
+                    </span></span></i> </td>
+              <td>
+                <dl>
+                  <dt><i><span style="font-family: Georgia;"><span style="color: black;">Fertig
+                          Meldungen</span></span></i></dt>
+                </dl>
+                <i><span style="font-family: Georgia;"><span style="color: black;"><textarea
+
+name="Fertig" required="required" wrap="soft"></textarea><br>
+                      <br>
+                    </span></span></i> </td>
+            </tr>
+            <tr>
+              <td>
+                <dl>
+                  <dt><i><span style="font-family: Georgia;"><span style="color: black;">Allg.
+                          Informationen</span></span></i></dt>
+                </dl>
+                <i><span style="font-family: Georgia;"><span style="color: black;"><textarea
+
+name="Allg" required="required" wrap="soft"></textarea><br>
+                      <br>
+                    </span></span></i> </td>
+              <td>
+                <dl>
+                  <dt style="text-align: left;"><i><span style="font-family: Georgia;"><span
+
+                          style="color: black;">Rechnungen</span></span></i></dt>
+                </dl>
+                <i><span style="font-family: Georgia;"><span style="color: black;"><textarea
+
+name="Rechnungen" required="required" wrap="soft"></textarea><br>
+                      <br>
+                    </span></span></i> </td>
+            </tr>
+            <tr>
+              <td><br>
+                <dl>
+                  <dt><span style="font-family: georgia,palatino,book antiqua,palatino linotype,serif; color: black;"><span
+
+                        style="font-size:30px">Wie haben Sie uns gefunden?</span></span>
+                  </dt>
+                </dl>
+              </td>
+              <td><i><span style="font-family: Georgia;"><span style="color: black;"><br>
+                    </span></span></i> </td>
+            </tr>
+            <tr>
+              <td rowspan="1" colspan="2"><i><span style="font-family: Georgia;"><span
+
+                      style="color: black;"></span></span></i>
+                <table style="width: 100%;" border="0">
+                  <tbody>
+                    <tr>
+                      <td colspan="1">
+                        <dl>
+                          <dt><br>
+                          </dt>
+                          <label> <input name="1" required="required" type="checkbox">
+                            <span class="custom-checkbox"></span> <i><span style="color: black;">Internet</span></i>
+                          </label> <br>
+                        </dl>
+                      </td>
+                      <td colspan="1">
+                        <dl>
+                          <dt><br>
+                          </dt>
+                          <label> <input name="2" required="required" type="checkbox">
+                            <span class="custom-checkbox"></span> <i><span style="color: black;">Freunde</span></i>
+                          </label> <br>
+                        </dl>
+                      </td>
+                      <td colspan="1">
+                        <dl>
+                          <dt><br>
+                          </dt>
+                          <label> <input name="3" required="required" type="checkbox">
+                            <span class="custom-checkbox"></span> <i><span style="color: black;">Geschäftspartner</span></i>
+                          </label> <br>
+                        </dl>
+                      </td>
+                      <td colspan="1">
+                        <dl>
+                          <dt><br>
+                          </dt>
+                          <label> <input name="4" required="required" type="checkbox">
+                            <span class="custom-checkbox"></span> <i><span style="color: black;">Kunden</span></i>
+                          </label> <br>
+                        </dl>
+                      </td>
+                      <td colspan="1">
+                        <dl>
+                          <dt><br>
+                          </dt>
+                          <label> <input name="5" required="required" type="checkbox">
+                            <span class="custom-checkbox"></span> <i><span style="color: black;">Direktkontakt</span></i>
+                          </label> <br>
+                        </dl>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <dl>
+                  <dt> <i><span style="font-family: Georgia;"><span style="color: black;">Sonstiges</span></span></i></dt>
+                </dl>
+                <i><span style="font-family: Georgia;"><span style="color: black;">
+                      <textarea name="Sonstiges" required="required" wrap="soft"></textarea><br>
+                      <br>
+                    </span></span></i> </td>
+            </tr>
+            <tr>
+              <td><i><span style="font-family: Georgia;"><span style="color: black;"><br>
+                    </span></span></i> </td>
+              <td><i><span style="font-family: Georgia;"><span style="color: black;"><br>
+                    </span></span></i> </td>
+            </tr>
+          </tbody>
+        </table>
+        <label for="name" style="height: 8px;"><br>
+          &nbsp;</label><input name="SENDEN" form="Neukundeformular" type="submit"><br>
+      </form>
+    </div>
+    <footer>
+      <p></p>
+      <div style="text-align: center;">
+        <table style="width: 1028px; margin: 0px auto;" border="0">
+          <tbody style="height: 280px;">
+            <tr>
+              <td style="width: 493.883px; font-family: &quot;Anton&quot;,&quot;sans-serif&quot;; color: black; font-size: 30px; height: 69px;">
+                <dl>
+                  <dt>Kontakt </dt>
+                </dl>
+              </td>
+              <td style="width: 493.883px; font-family: &quot;Anton&quot;,&quot;sans-serif&quot;; color: black; font-size: 30px; height: 69px;">
+                <dl>
+                  <dt><br>
+                  </dt>
+                </dl>
+              </td>
+              <td style="width: 493.883px; font-family: &quot;Anton&quot;,&quot;sans-serif&quot;; color: black; font-size: 30px; height: 69px;">
+                <dl>
+                  <dt><br>
+                  </dt>
+                </dl>
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 160px;"><span style="color: black;">HÄRTEREI
+                  BLESSING AG<br>
+                  Buchmattstrasse 112<br>
+                  3400 Burgdorf<br>
+                  Schweiz<br>
+                  Telefon: +41 (0)34 426 10 80<br>
+                  <a href="mailto:michael.jenni@blessing.ch" title="mail" style="color: black;">info@blessing.ch</a><br>
+                </span> </td>
+              <td style="height: 180px;"><span style="color: white;"><br>
+                </span> </td>
+              <td style="height: 180px;"><span style="color: black;"><a href="www.blessing.ch"
+
+                    style="color: wblack;"></a><br>
+                </span> </td>
+            </tr>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+        <table style="width: 1021px; margin: 0px auto;" border="0">
+          <tbody>
+            <tr>
+              <td><span style="color: black;">Öffnungszeiten: Mo-Fr 08:00h bis
+                  12:00h und 13:00h bis 17:00h<br>
+                  Das Tel. Wird bedient von: Mo-Fr 08:00h bis 11:30h und 13:00h
+                  bis 17:00h<br>
+                </span> </td>
+            </tr>
+          </tbody>
+        </table>
+        <p><br>
+        </p>
+        <p><span style="color: black;">© 2024 Härterei Blessing. Alle Rechte
+            vorbehalten.</span></p>
+      </div>
+    </footer>
+    <dl>
+      <dt> <br>
+      </dt>
+    </dl>
+  </body>
+</html>
